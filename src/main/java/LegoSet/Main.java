@@ -1,13 +1,14 @@
 package LegoSet;
 
+import album.Album;
 import jaxb.JAXBHelper;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.time.Year;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
@@ -25,18 +26,13 @@ public class Main {
         minifigs.add(new Minifig(1,"Imperial Pilot"));
         minifigs.add(new Minifig(1,"Mimban Stormtrooper"));
         legoSet.setMinifigs(minifigs);
-        Set<String> tags = new HashSet<>();
-        tags.add("Starfighter");
-        tags.add("Stormtrooper");
-        tags.add("Star Wars");
-        tags.add("Solo");
-        legoSet.setTags(tags);
+        legoSet.setTags(Set.of("Starfighter","Stormtrooper","Star Wars","Solo"));
         legoSet.setWeight(new Weight(0.89,"kg"));
 
         legoSet.setUrl("https://brickset.com/sets/75211-1/Imperial-TIE-Fighter");
         JAXBHelper.toXML(legoSet, System.out);
 
         JAXBHelper.toXML(legoSet, new FileOutputStream("lego.xml"));
-
+        System.out.println(JAXBHelper.fromXML(LegoSet.class, new FileInputStream("lego.xml")));
     }
 }
