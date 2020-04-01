@@ -1,5 +1,6 @@
 package LegoSet;
 
+import java.net.URL;
 import java.time.Year;
 import java.util.List;
 import java.util.Set;
@@ -32,7 +33,7 @@ public class LegoSet {
     private List<Minifig> minifigs;
     private  Weight weight;
 
-    private String url;
+    private URL url;
 
     public String getName() {
         return name;
@@ -98,11 +99,11 @@ public class LegoSet {
         this.weight = weight;
     }
 
-    public String getUrl() {
+    public URL getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(URL url) {
         this.url = url;
     }
 
